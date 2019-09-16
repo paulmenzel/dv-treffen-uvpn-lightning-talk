@@ -45,7 +45,7 @@ $ uvpn/uvpn
 
 # Auswahl
 
-`cmd_start_as_root()`
+Funktion `cmd_start_as_root()`:
 
 ```
 mkdir -p "/run/uvpn/$user/ns"
