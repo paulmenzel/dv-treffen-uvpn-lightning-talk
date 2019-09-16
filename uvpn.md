@@ -4,6 +4,8 @@
 
 # Probleme
 
+## Anforderung
+
 1.  Beschäftigte, die auch an anderen Einrichtungen arbeiten, oder Gäste brauchen VPN zum Zugriff auf die EDV-Umgebung
 1.  Meist OpenVPN-Klient installieren
 
@@ -20,7 +22,7 @@
 1.  Umsetzung mit Bash-Skript [uvpn](https://github.molgen.mpg.de/mariux64/mxtools/blob/master/uvpn/uvpn)
 1.  Zugriff auf Dateien wie normaler Nutzer\*in
 
-## Nutzung
+# Nutzung
 
 ```
 $ uvpn/uvpn
@@ -34,14 +36,14 @@ $ uvpn/uvpn
     uvpn/uvpn stop_as_root     # sudo callback - internal use
 ```
 
-## Priviligierte Operation
+# Priviligierte Operation
 
 1.  Erzeugen des Network-Namespaces priviligiert
 1.  `/etc/sudoers` (`sudo visudo`)
 
         ALL ALL=NOPASSWD: /usr/bin/uvpn start_as_root,/usr/bin/uvpn stop_as_root
 
-## Auswahl
+# Auswahl
 
 `cmd_start_as_root()`
 
