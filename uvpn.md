@@ -57,7 +57,7 @@ mount --bind "/run/uvpn/$user/ns" "/run/uvpn/$user/ns"
 mount --make-private "/run/uvpn/$user/ns"
 
 pid=$(setuid $uid unshare --mount --user --net bash -c 'sleep 30 > /dev/null&echo $!')
-for ns in user net mnt;do
+for ns in user net mnt; do
 	mount --bind /proc/$pid/ns/$ns "/run/uvpn/$user/ns/$ns"
 done
 echo "0 $uid 1" > /proc/$pid/uid_map
