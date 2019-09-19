@@ -42,7 +42,8 @@ $ uvpn/uvpn
 1.  Erzeugen des Network-Namespaces priviligiert
 1.  `/etc/sudoers` (`sudo visudo`)
 
-        ALL ALL=NOPASSWD: /usr/bin/uvpn start_as_root,/usr/bin/uvpn stop_as_root
+        ALL ALL=NOPASSWD: /usr/bin/uvpn start_as_root, \
+                          /usr/bin/uvpn stop_as_root
 
 # Auswahl
 
@@ -56,7 +57,13 @@ for ns in user net mnt;do
 done
 mount --bind "/run/uvpn/$user/ns" "/run/uvpn/$user/ns"
 mount --make-private "/run/uvpn/$user/ns"
+[…]
+```
 
+# Auswahl 2
+
+```
+[…]
 pid=$(setuid $uid unshare --mount --user --net bash -c 'sleep 30 > /dev/null&echo $!')
 for ns in user net mnt; do
 	mount --bind /proc/$pid/ns/$ns "/run/uvpn/$user/ns/$ns"
